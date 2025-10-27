@@ -2,7 +2,6 @@ import { prisma } from '../prisma/prisma.js'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import crypto from 'crypto'
-import { error } from 'console'
 
 function GenerateAccessToken(userId: string) {
     return jwt.sign({ userId }, process.env.JWT_ACCESS_SECRET!, { expiresIn: '10m' })
@@ -79,4 +78,18 @@ export async function refreshUserToken(token: string) {
     const newAccessToken = GenerateAccessToken(refreshToken.userId)
     return newAccessToken
 
+}
+
+// limpeza de tokens expirados
+export async function cleanupExpiredTokens() {
+    const now = new Date()
+
+    const result = await prisma.refreshToken.deleteMany({
+        where: {
+            expiresAt: {
+                lt: now
+            }
+        }
+    })
+    return result.count
 }

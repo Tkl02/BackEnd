@@ -5,7 +5,6 @@ import { authMiddleware } from "../middlewares/auth.middleware.js";
 const projectRouter = Router()
 
 projectRouter.get('/', handleGetAllProject)
-
 projectRouter.post('/', authMiddleware, handleCreateProject)
 projectRouter.put('/:id', authMiddleware, handleUpdateProject)
 projectRouter.delete('/:id', authMiddleware, handleDeleteProject)
