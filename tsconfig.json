@@ -4,6 +4,8 @@
     "target": "esnext",
     "types": ["node"],
     "sourceMap": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
     "declaration": true,
     "declarationMap": true,
     "noUncheckedIndexedAccess": true,
@@ -18,5 +20,7 @@
     "moduleResolution": "nodenext",
     "allowImportingTsExtensions": false,
     "esModuleInterop": true
-  }
+  },
+
+  "include": ["src/**/*"]
 }
