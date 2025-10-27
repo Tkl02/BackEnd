@@ -17,7 +17,6 @@
     {
       "path": "/api/cron/cleanup-tokens",
       "schedule": "0 5 * * *",
-      "method": "POST",
       "headers": {
         "Authorization": "Bearer $CRON_SECRET"
       }
