@@ -4,7 +4,7 @@ import { cleanupExpiredTokens } from "../services/auth.service.js"
 
 const cronRouter = Router()
 
-cronRouter.post(
+cronRouter.get(
     '/cleanup-tokens', authCron,
     async (req: Request, res: Response) => {
         try {
