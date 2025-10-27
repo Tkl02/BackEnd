@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
 
 // rota de health check
-app.get('/api/health', async (req, res) => {
+app.get('/', async (req, res) => {
     res.status(200).json({ status: 'UP', timeStamp: new Date().toISOString() })
 })
 
