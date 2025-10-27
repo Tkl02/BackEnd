@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node --watch --loader ts-node/esm src/server.ts",
     "build": "prisma generate && tsc",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "postinstall": "prisma generate"
   },
   "repository": {
     "type": "git",
