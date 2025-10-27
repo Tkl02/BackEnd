@@ -2,22 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "dist/server.js",
+      "src": "src/server.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "dist/server.js"
-    }
-  ],
-
-  "crons": [
-    {
-      "path": "/api/cron/cleanup-tokens?secret=$CRON_SECRET",
-
-      "schedule": "0 5 * * *"
+      "src": "/(.*)",
+      "dest": "src/server.js"
     }
   ]
 }
