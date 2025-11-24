@@ -6,6 +6,7 @@ import { projectRouter } from './routes/project.routes.js'
 import { certificationRouter } from './routes/certification.routes.js'
 import { cronRouter } from './routes/cron.routs.js'
 import { uploadRoute } from './routes/upload.route.js'
+import cors from 'cors'
 
 dotenv.config()
 
@@ -15,6 +16,13 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
+
+// 2. Configure o CORS
+const corsOptions = {
+  origin: 'https://leonardofaustino.vercel.app',
+  credentials: true,
+}
+app.use(cors(corsOptions))
 
 // rota de health check
 app.get('/', async (req, res) => {

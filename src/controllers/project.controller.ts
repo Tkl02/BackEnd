@@ -15,11 +15,11 @@ export async function handleGetAllProject(req: Request, res: Response) {
 export async function handleCreateProject(req: Request, res: Response) {
     try {
         const { title, description, image, technologies, repoUrl, featured } = req.body
-        if (!title || !description || !image || !technologies || !repoUrl || !featured) {
+        if (!title || !description || !image || !technologies || !repoUrl) {
             return res.status(400).json({ error: 'Campos obrigatorios' })
         }
         const newProject = await projectService.createProject({
-            title, description, image, technologies, repoUrl, featured
+            title, description, image, technologies, repoUrl, featured: featured || false
         })
         res.status(201).json({ newProject })
     } catch (error) {
