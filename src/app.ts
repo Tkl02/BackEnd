@@ -19,7 +19,7 @@ app.use(cookieParser())
 
 // 2. Configure o CORS
 const corsOptions = {
-  origin: "*",
+  origin: "https://leonardofaustino.vercel.app/",
   credentials: true,
 }
 app.use(cors(corsOptions))
