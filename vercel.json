@@ -1,6 +1,8 @@
 {
-  "rewrites": [{"source": "/(.*)", "destination": "/api"}],
-    "scripts": {
-    "postinstall": "prisma generate"
-  }
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api"
+    }
+  ]
 } 
