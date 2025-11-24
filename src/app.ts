@@ -19,27 +19,7 @@ app.use(cookieParser())
 
 // 2. Configure o CORS
 const corsOptions = {
-  origin: function (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) {
-    const allowedOrigins = [
-      'https://leonardofaustino.vercel.app',
-      /^https:\/\/.*\.vercel\.app$/,
-    ]
-    
-    if (!origin) return callback(null, true)
-    
-    const isAllowed = allowedOrigins.some(allowed => {
-      if (typeof allowed === 'string') {
-        return allowed === origin
-      }
-      return allowed.test(origin)
-    })
-    
-    if (isAllowed) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  },
+  origin: 'https://leonardofaustino.vercel.app',
   credentials: true,
 }
 app.use(cors(corsOptions))
